@@ -1,0 +1,60 @@
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import Screen1 from './Screen1';
+import Screen2 from './Screen2';
+import Screen3 from './Screen3';
+
+class HomeScreen extends React.Component {
+  render() {
+    //const {navigate} = this.props.navigation;
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Button
+        title="First Layout"
+        onPress={() => this.props.navigation.navigate('Layout1')}
+      />
+        <Button
+        title="Second Layout"
+        onPress={() => this.props.navigation.navigate('Layout2')}
+      />
+        <Button
+        title="Third Layout"
+        onPress={() => this.props.navigation.navigate('Layout3')}
+      />
+      </View>
+    );
+  } 
+}
+
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: Screen1,
+  },
+  Layout1: {
+    screen: Screen1,
+  },
+  Layout2: {
+    screen: Screen2,
+  },
+  Layout3: {
+    screen: Screen3,
+  },
+});
+
+const App1 = createAppContainer(AppNavigator);
+
+export default App1
+
+
+          <View>
+            <Text>Name</Text>
+            <TextInput
+            style={styles.input}
+            placeholder="Type here"
+            onChangeText={this.onChangeText}
+            value={this.state.name}
+            />
+            <Text style={{padding: 10, fontSize: 32}}> You typed: {this.state.name}</Text>
+          </View>

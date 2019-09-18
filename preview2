@@ -1,0 +1,140 @@
+export const flagURLS = [
+    {
+      id: 1,
+      status: false,
+      uri: require('./assets/flags/af.png')
+    },
+    {
+      id: 2,
+      status: false,
+      uri: require('./assets/flags/ag.png')
+    },
+    {
+      id: 3,
+      status: false,
+      uri: require('./assets/flags/at.png')
+    },
+    {
+      id: 4,
+      status: false,
+      uri: require('./assets/flags/bb.png')
+    },
+    {
+      id: 5,
+      status: false,
+      uri: require('./assets/flags/bf.png')
+    },
+    {
+      id: 6,
+      status: false,
+      uri: require('./assets/flags/bj.png')
+    }, 
+    {
+      id: 7,
+      status: false,
+      uri: require('./assets/flags/bo.png')
+    },
+    {
+      id: 8,
+      status: false,
+      uri: require('./assets/flags/br.png')
+    },
+    {
+      id: 1,
+      status: false,
+      uri: require('./assets/flags/af.png')
+    },
+    {
+      id: 2,
+      status: false,
+      uri: require('./assets/flags/ag.png')
+    },
+    {
+      id: 3,
+      status: false,
+      uri: require('./assets/flags/at.png')
+    },
+    {
+      id: 4,
+      status: false,
+      uri: require('./assets/flags/bb.png')
+    },
+    {
+      id: 5,
+      status: false,
+      uri: require('./assets/flags/bf.png')
+    },
+    {
+      id: 6,
+      status: false,
+      uri: require('./assets/flags/bj.png')
+    }, 
+    {
+      id: 7,
+      status: false,
+      uri: require('./assets/flags/bo.png')
+    },
+    {
+      id: 8,
+      status: false,
+      uri: require('./assets/flags/br.png')
+    },
+  ].sort( () => Math.random() - 0.5);
+
+  const flags = [
+  {
+    uri: require('./assets/flags/af.png')
+  },
+  {
+    uri: require('./assets/flags/ag.png')
+  },
+  {
+    uri: require('./assets/flags/at.png')
+  },
+  {
+    uri: require('./assets/flags/bb.png')
+  },
+  {
+    uri: require('./assets/flags/bf.png')
+  },
+  {
+    uri: require('./assets/flags/bj.png')
+  }, 
+  {
+    uri: require('./assets/flags/bo.png')
+  },
+  {
+    uri: require('./assets/flags/br.png')
+  },
+  {
+    uri: require('./assets/flags/af.png')
+  },
+  {
+    uri: require('./assets/flags/ag.png')
+  },
+  {
+    uri: require('./assets/flags/at.png')
+  },
+  {
+    uri: require('./assets/flags/bb.png')
+  },
+  {
+    uri: require('./assets/flags/bf.png')
+  },
+  {
+    uri: require('./assets/flags/bj.png')
+  }, 
+  {
+    uri: require('./assets/flags/bo.png')
+  },
+  {
+    uri: require('./assets/flags/br.png')
+  }
+]
+
+    const cards = [];
+    for (let i = 0; i < 10; i++) {
+        cards.push({
+            uri: require('./assets/flags/1android.png'),
+        });
+    }

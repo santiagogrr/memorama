@@ -1,0 +1,211 @@
+import React, {Component} from 'react';
+import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
+import {YellowBox} from 'react-native';
+import {flagURLS} from './flagURLS';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false,
+      selected1: [],
+      matched: []
+    }; 
+  }
+
+  isSelected = (selected, tile) => {
+    return selected.find(tileItem => tileItem === tile)   
+  }
+
+  arrayRemove(arr, value) {
+    return arr.filter((ele) => {
+        return ele != value;
+    });
+ }
+ 
+
+  handleClick = tile => {
+    // this.state.selected1.length = Math.min(this.state.selected1.length, 2);
+    if(!this.isSelected(this.state.selected1, tile)){
+    this.setState({
+      selected1: this.state.selected1.concat([tile]),
+      matched: this.state.matched.concat([tile])
+    });
+  }
+  // else{
+  //   this.setState({
+  //     selected1: this.arrayRemove(this.state.selected1,tile)
+  //   });
+  //   }
+
+  } 
+
+  isSelected = (selected, tile) => {
+    if(selected.find(tileItem => tileItem === tile) )
+      return true
+    else
+      return false  
+  }
+  
+  identical(array) {
+    for(var i = 0; i < array.length - 1; i++) {
+        if(array[0].id !== array[1].id) {
+            return false;  
+        }
+    }
+    return true;
+  
+}
+
+// identical(arr) {
+//   return arr.every( v => v.id === arr[0].id );
+// }
+
+
+  render(){
+    console.log(this.state.selected1)
+
+    // if(this.state.selected1.length == 3)
+    //   this.state.selected1 = []
+    let flag;
+    if(this.state.selected1.length>=1){
+      for(var i = 0; i < this.state.selected1.length -1; i++) {
+      if(this.state.selected1[i].id !== this.state.selected1[i+1].id) {
+          flag = false
+          console.log(false);  
+      }else
+          flag = true
+          console.log(true);  
+    }
+    if(this.state.selected1.length == 2)
+      this.state.selected1=[]
+}
+  
+
+    const imgs = flagURLS.map((tile, i) => {
+      return (
+      <View key={i} style={styles.bottomItem}>
+        <TouchableOpacity onPress={() => this.handleClick(tile)} >
+        <Image
+            source={tile.uri}
+            //style = {styles.pic}
+            style={this.isSelected(this.state.selected1, tile)  ? styles.inputClicked : styles.pic}
+            />
+        </TouchableOpacity>
+      </View>
+      )
+    });
+
+    return(
+      <View style={styles.mainView}>
+
+        <View style={styles.firstrow}>
+          <Text style={styles.whiteText}>Memorama</Text>
+        </View>
+        
+        <View style={styles.secondrow}>
+          <Text style={styles.subText}>Puntos: 0 </Text>
+        </View>
+        
+        <View style={styles.thirdrow}>       
+          {imgs}
+        </View>
+
+        <View style={styles.fourthrow}>
+          <TouchableOpacity disabled={true} style={styles.buttonContainer} >
+            <Text style={styles.buttondisable}>Iniciar Juego</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.buttonContainer} >
+            <Text style={styles.button}>Ver Solucion</Text>
+          </TouchableOpacity>
+        </View>
+
+      </View>
+    );
+  };
+}
+
+const styles = StyleSheet.create({
+  mainView: {
+    flex: 1,
+    //paddingTop: 20,
+    // backgroundColor: '#f3f3f3'
+  },
+  firstrow: {
+    height: '7%',
+    backgroundColor: "#6262de",
+    alignItems: 'flex-start',
+    justifyContent: 'center'
+  },
+  secondrow: {
+    height: '8%',
+    backgroundColor: "#98d2c1",
+    alignItems: 'flex-start',
+    justifyContent: 'center'
+  },
+  thirdrow: {
+    height: '70%',
+    backgroundColor: "#556570",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    padding: 10,
+  },
+  fourthrow: {
+    flexDirection: 'row',
+    height: '15%',
+    backgroundColor: "white",
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  bottomItem: {
+    width: 80,
+    height: 80,
+    margin: 3,
+  },
+  buttonContainer:{
+   backgroundColor:'#eee',
+   margin: 20,
+  },
+  button:{
+    fontSize: 14,
+    fontWeight: 'bold',
+    padding: 10,
+  },
+  buttondisable:{
+    fontSize: 14,
+    fontWeight: 'bold',
+    padding: 10,
+    opacity: 0.3
+  },
+  mainText:{
+    fontSize: 16
+  },
+  subText:{
+    fontSize: 18,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  whiteText:{
+    fontSize: 22,
+    padding: 10,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  pic:{
+    height: 75,
+    width: 75,
+    borderRadius: 30
+  },
+  inputClicked: {
+    height: 75,
+    width: 75,
+    borderRadius: 30,
+    opacity: 0.5
+  },
+
+});
+
+export default App;
